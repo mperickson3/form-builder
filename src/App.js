@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./UI/Card";
+import QuestionItem from "./QuestionItem/QuestionItem";
+import { questionActions } from "./store";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  const questions = useSelector((state) => state);
+
+  const addQuestionHandler = () => {
+    dispatch(questionActions.addQuestion());
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button className="addQuestion" onClick={addQuestionHandler}>
+        Add Question
+      </button>
+      {questions.map((question, index) => {
+        return (
+          <QuestionItem
+            key={"Question ID " + index}
+            questionID={index}
+          ></QuestionItem>
+        );
+      })}
     </div>
   );
 }
