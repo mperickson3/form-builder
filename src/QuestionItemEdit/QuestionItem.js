@@ -6,14 +6,9 @@ import AnswersList from "./AnswersList";
 import { useState, useEffect } from "react";
 
 const QuestionItem = (props) => {
-  // const [newStyle, setNewStyle] = useState({});
   const newStyle = { width: "2rem", height: "2rem", fontSize: "x-large" };
   const dispatch = useDispatch();
   const activeQuestion = useSelector((state) => state[props.questionID]);
-
-  // useEffect(() => {
-  //   setNewStyle({ width: "2rem", height: "2rem", fontSize: "x-large" });
-  // }, []);
 
   const buttonHandler = () => {
     dispatch(questionActions.addAnswer(props.questionID));
@@ -24,9 +19,16 @@ const QuestionItem = (props) => {
     dispatch(questionActions.editTitle(payload));
   };
 
+  const removeQuestionHandler = () => {
+    dispatch(questionActions.removeQuestion(props.questionID));
+  };
+
   return (
     <Card key={props.questionID}>
-      {/* <div>{counter}</div> */}
+      <button className="removeQuestion" onClick={removeQuestionHandler}>
+        {" "}
+        -
+      </button>
       <input
         className="qTitle"
         key={"Question Title " + props.questionID}

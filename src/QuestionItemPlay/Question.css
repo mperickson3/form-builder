@@ -1,0 +1,81 @@
+.qTitle {
+  padding: 1rem;
+  /* color: red; */
+  background-color: #282c34;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: white;
+  margin: 1rem auto;
+  text-align: center;
+  width: 60vw;
+}
+
+.qAnswerPlay {
+  position: relative;
+  padding: 0.5rem;
+  /* color: red; */
+  background-color: #282c34;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  background-color: white;
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: large;
+
+  width: 60vw;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.qAnswerPlayAnimate {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  transform: translateX(100%);
+  top: 0;
+  left: 0;
+  background-color: rgb(127, 113, 255);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+.qAnswerPlayAnimate2 {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  transform: translateX(-100%);
+  top: 0;
+  left: 0;
+  background-color: rgb(127, 113, 255);
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+}
+
+.addAnswer {
+  padding: 0rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  background-color: white;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: xx-small;
+  width: fit-content;
+  height: fit-content;
+  transition: 1s;
+  align-items: center;
+}
+
+.Back {
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  background-color: white;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: medium;
+  width: fit-content;
+  height: fit-content;
+  transition: 1s;
+  align-items: center;
+}

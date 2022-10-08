@@ -1,9 +1,8 @@
-import Card from "../UI/Card";
 import "./QuestionItem.css";
 import AnswerItem from "./AnswerItem";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { questionActions } from "../store";
+import { getByDisplayValue } from "@testing-library/react";
 
 const AnswersList = (props) => {
   const dispatch = useDispatch();
@@ -18,6 +17,15 @@ const AnswersList = (props) => {
     dispatch(questionActions.editAnswer(payload));
   };
 
+  const removeAnswer = (event, index) => {
+    const payload = {
+      qID: props.questionID,
+      index: index,
+      length: activeAnswers.length,
+    };
+    dispatch(questionActions.removeAnswer(payload));
+  };
+
   return (
     <div className="column" key={props.quesionID + "answers"}>
       {activeAnswers.map((dAnswer, index) => {
@@ -27,15 +35,9 @@ const AnswersList = (props) => {
             index={index}
             value={dAnswer}
             change={(event) => editAnswerText(event, index)}
+            questionID={props.questionID}
+            removeAnswer={(event) => removeAnswer(event, index)}
           ></AnswerItem>
-          // <input
-          //   key={index.toString() + props.questionID.toString()}
-          //   className="qAnswer"
-          //   onChange={(event) => editAnswerText(event, index)}
-          //   value={dAnswer}
-          //   placeholder={"Enter Answer Text"}
-          //   style={newStyle}
-          // />
         );
       })}
     </div>
