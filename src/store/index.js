@@ -2,18 +2,18 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const dummyQuestionList = [
   {
+    title: "Is a string mutable?",
+    answers: ["Absolutely Not", "Yes", "I do not know"],
+    correctAnswers: [0],
+  },
+  {
+    title: "What is the best javascript library",
+    answers: ["React.js", "Vue", "Angular"],
+    correctAnswers: [0],
+  },
+  {
     title: "Who's the best dog?",
     answers: ["Doug", "Remmy", "Clifford"],
-    correctAnswers: [1],
-  },
-  {
-    title: "Who's the best wife?",
-    answers: ["Jessamy", "No contest", "Jessamy"],
-    correctAnswers: [0, 2],
-  },
-  {
-    title: "Who is the best husband?",
-    answers: ["Bandit", "Matthew", "Vadar"],
     correctAnswers: [1],
   },
 ];
