@@ -39,25 +39,26 @@
 }
 
 .removeQuestion {
-  padding: 0rem;
   position: relative;
-  top: 0%;
-  left: 0%;
+  top: 0;
+  left: 0;
+  padding: 0px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
-  background-color: white;
-  margin: 1rem auto;
-  text-align: center;
-  font-size: medium;
-  width: 2rem;
-  height: 2rem;
+  background-color: rgba(255, 49, 49, 0.383);
+  width: 1rem;
+  height: 1rem;
+  line-height: 0px;
   transition: 1s;
+  text-align: center;
   align-items: center;
+  display: block;
 }
 
 .toggleAnswer {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
+  padding: 0px;
   background-color: white;
   margin: 0.5rem 0.5rem;
   text-align: center;
@@ -65,18 +66,25 @@
   width: 1.5rem;
   height: 1.5rem;
   transition: 1s;
+  text-align: center;
   align-items: center;
+  display: block;
+  line-height: 0px;
 }
 
 .removeAnswer {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
-  background-color: white;
+  padding: 0px;
+  background-color: rgba(255, 49, 49, 0.383);
   margin: 0.5rem 0.5rem;
   text-align: center;
   font-size: medium;
   width: 1.5rem;
   height: 1.5rem;
   transition: 1s;
+  text-align: center;
   align-items: center;
+  display: block;
+  line-height: 0px;
 }

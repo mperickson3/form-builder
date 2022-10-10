@@ -5,6 +5,7 @@ import { questionActions } from "../store";
 const AnswerItem = (props) => {
   const [newStyle, setNewStyle] = useState({});
   const [buttonIcon, setButtonIcon] = useState("+");
+  const [removingAnswer, setRemovingAnswer] = useState(false);
   const dispatch = useDispatch();
   const correctAnswers = useSelector(
     (state) => state[props.questionID].correctAnswers
@@ -24,15 +25,18 @@ const AnswerItem = (props) => {
   }, [correctAnswers]);
 
   const removeAnswerHandler = () => {
+    setRemovingAnswer(true);
     setNewStyle({
       transition: "0.5s ease-in-out",
       width: "0px",
       height: "0px",
+      margin: "0px auto",
     });
     setTimeout(() => {
       props.removeAnswer(props.index);
       setNewStyle({ transition: "0s", width: "60vw" });
-    }, 380);
+      setRemovingAnswer(false);
+    }, 500);
   };
 
   const toggleAnswer = () => {
@@ -52,9 +56,11 @@ const AnswerItem = (props) => {
 
   return (
     <div className="row">
-      <button className="removeAnswer" onClick={removeAnswerHandler}>
-        -
-      </button>
+      {!removingAnswer && (
+        <button className="removeAnswer" onClick={removeAnswerHandler}>
+          x
+        </button>
+      )}
       <input
         className="qAnswer"
         placeholder={"Enter Answer Text"}
@@ -63,9 +69,11 @@ const AnswerItem = (props) => {
         onChange={props.change}
         style={newStyle}
       />
-      <button onClick={toggleAnswer} className="toggleAnswer">
-        {buttonIcon}
-      </button>
+      {!removingAnswer && (
+        <button onClick={toggleAnswer} className="toggleAnswer">
+          {buttonIcon}
+        </button>
+      )}
     </div>
   );
 };

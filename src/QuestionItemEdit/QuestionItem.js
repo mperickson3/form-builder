@@ -20,34 +20,37 @@ const QuestionItem = (props) => {
   };
 
   const removeQuestionHandler = () => {
-    dispatch(questionActions.removeQuestion(props.questionID));
+    dispatch(questionActions.removeQuestion({ qID: props.questionID }));
   };
 
   return (
     <Card key={props.questionID}>
-      <button className="removeQuestion" onClick={removeQuestionHandler}>
-        {" "}
-        -
-      </button>
-      <input
-        className="qTitle"
-        key={"Question Title " + props.questionID}
-        value={activeQuestion.title}
-        placeholder={"Enter Title"}
-        onChange={titleEditHandler}
-      />
-      <AnswersList
-        questionID={props.questionID}
-        activeQuestionAnswers={activeQuestion.answers}
-      ></AnswersList>
-      <button
-        key={"button" + props.questionID}
-        className="addAnswer"
-        onClick={buttonHandler}
-        style={newStyle}
-      >
-        +
-      </button>
+      <div className="column">
+        <button className="removeQuestion" onClick={removeQuestionHandler}>
+          x
+        </button>
+
+        <input
+          className="qTitle"
+          key={"Question Title " + props.questionID}
+          value={activeQuestion.title}
+          placeholder={"Enter Title"}
+          onChange={titleEditHandler}
+        />
+
+        <AnswersList
+          questionID={props.questionID}
+          activeQuestionAnswers={activeQuestion.answers}
+        ></AnswersList>
+        <button
+          key={"button" + props.questionID}
+          className="addAnswer"
+          onClick={buttonHandler}
+          style={newStyle}
+        >
+          +
+        </button>
+      </div>
     </Card>
   );
 };
